@@ -11,7 +11,7 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'compiling the code'
-                echo ' compiling  in ${params.Env}'
+                echo "compiling  in ${params.Env}"
             }
         }
 
