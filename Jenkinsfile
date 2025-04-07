@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'Env', defaultValue: 'Test', description: 'Version to compile')
         booleanParam(name: 'executeTest', defaultValue: true, description: 'Decide whether to run test cases')
-        choice(name: 'APPVERSION', choices: ['1.1', '2.1', '3.1'])
+        choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'])
     }
 
     stages {
