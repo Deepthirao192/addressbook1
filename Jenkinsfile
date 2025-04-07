@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'Env', defaultValue: 'Test', description: 'Version to compile')
         booleanParam(name: 'executeTest', defaultValue: true, description: 'Decide whether to run test cases')
-        choice(name: 'NEWAPP', choices: ['1.1', '1.2', '1.3'])
+        choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'])
     }
 
     stages {
@@ -36,7 +36,7 @@ pipeline {
         } 
         steps{
             echo 'Packaging the code'
-            echo "packaging the version ${params.NEWAPP}"
+            echo "packaging the version ${params.APPVERSION}"
         }
     }
     }
