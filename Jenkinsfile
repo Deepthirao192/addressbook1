@@ -3,7 +3,7 @@ pipeline {
 
     tools
     {
-        jdk 'myjava'
+        jdk 'my java'
         maven 'mymaven'
         }
     parameters {
@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 echo "Testing the code"
-                sh 'mvn tes't
+                sh 'mvn test'
             }
         }
 
