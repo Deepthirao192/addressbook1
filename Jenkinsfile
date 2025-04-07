@@ -36,7 +36,7 @@ pipeline {
         } 
         steps{
             echo 'Packaging the code'
-            echo 'packaging the version ${params.NEWAPP}'
+            echo "packaging the version ${params.NEWAPP}"
         }
     }
     }
