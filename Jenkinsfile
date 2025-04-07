@@ -28,6 +28,12 @@ pipeline {
     }
 
     stage('Package') {
+        input{
+             message "select the version to package"
+             ok "version selected"
+             parameters (name: 'NEWAPP', choices: ['1.1', '1.2', '1.3'])
+    
+        } 
         steps{
             echo 'Packaging the code'
             echo 'packaging the version ${params.APPVERSION}'
