@@ -1,19 +1,37 @@
 pipeline {
     agent any
- 
- parameters{ 
-    string(name: 'ENV', defaultvalue: 'DEV', description: 'env to compile')
-    booleanParam(name: 'executeTest', defaultvalue: true, description: 'decide to run testcase')
-    choice(name: 'APPVERSION', choice: ['1.1', '1.2', '1.3', description: 'pick some app version'])
- }
-    stages {
-        stage('compile') {
-            steps {
-                script{
+    
+    parameters {
+        string(name: 'Env', defaultValue: 'Test', description: 'Version to compile')
+        booleanParam(name: 'executeTest', defaultValue: true, description: 'Decide whether to run test cases')
+        choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'])
+    }
 
-                echo 'compile the code'
-                echo "Compiling in ${params.ENV}"
+    stages {
+        stage('Compile') {
+            steps {
+                echo 'compiling the code'
+                echo ' compiling  in ${params.Env}'
             }
         }
+
+            
+
+    stage('UnitTest') {
+            when {
+                expression { params.executeTest == true }
+            }
+            steps {
+                
+                    echo "Testing the code"
+            }
+    }
+
+    stage('Package') {
+        steps{
+            echo 'Packaging the code'
+            echo 'packaging the version ${params.APPVERSION}'
+        }
+    }
     }
 }
