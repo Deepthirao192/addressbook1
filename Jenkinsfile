@@ -31,7 +31,7 @@ pipeline {
         input{
              message "select the version to package"
              ok "version selected"
-             parameters {(name: 'NEWAPP', choices: ['1.1', '2.1', '3.1'])}
+             parameters {choice (name: 'NEWAPP', choices: ['1.1', '2.1', '3.1'])}
     
         } 
         steps{
