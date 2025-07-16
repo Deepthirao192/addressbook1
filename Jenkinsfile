@@ -49,6 +49,8 @@ pipeline {
                 ok "Deploy"
                 parameters {
                     choice(name: 'NEWAPP', choices: ['ONPREM','EKS','EC2'])
+                }
+            }
             steps {
                 echo 'Packaging the code'
                 echo "Packaging the version ${params.APPVERSION}"
@@ -58,5 +60,4 @@ pipeline {
     }
 }
     
-    }
-}
+    
