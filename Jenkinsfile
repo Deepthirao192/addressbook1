@@ -48,7 +48,7 @@ pipeline {
                 message "Select the Environemnt to deploy"
                 ok "Deploy"
                 parameters {
-                    choice(name: 'NEWAPP', choices: ['ONPREM', 'EKS', 'EC2'])
+                    choice(name: 'NEWAPP', choices: ['ONPREM','EKS','EC2'])
             steps {
                 echo 'Packaging the code'
                 echo "Packaging the version ${params.APPVERSION}"
@@ -58,3 +58,4 @@ pipeline {
     }
 }
     
+    }
