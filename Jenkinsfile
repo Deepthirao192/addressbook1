@@ -45,12 +45,10 @@ pipeline {
             
             }
             input {
-                message "Select the version to package"
-                ok "Version selected"
+                message "Select the Environemnt to deploy"
+                ok "Deploy"
                 parameters {
-                    choice(name: 'NEWAPP', choices: ['1.1', '2.1', '3.1'], description: 'Select the version to package')
-                }
-            }
+                    choice(name: 'NEWAPP', choices: ['ONPREM', 'EKS', '3.EC2'])
             steps {
                 echo 'Packaging the code'
                 echo "Packaging the version ${params.APPVERSION}"
