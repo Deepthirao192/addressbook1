@@ -40,10 +40,8 @@ pipeline {
         }
 
         stage('Package') {
-            
             agent any
-            
-            }
+        
             input {
                 message "Select the env to deploy"
                 ok "Deploy"
