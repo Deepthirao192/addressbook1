@@ -13,5 +13,5 @@ git pull origin master
 else
 git clone https://github.com/Deepthirao192/addressbook1.git
 fi
-cd /home/ec2-user/addressboook
+cd /home/ec2-user/addressbook
 mvn package
