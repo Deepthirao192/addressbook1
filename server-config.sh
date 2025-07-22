@@ -5,13 +5,13 @@ sudo yum install -y git
 sudo yum install -y maven
 
 
-if [ -d "addressbook" ]
+if [ -d "addressbook1" ]
 then
 echo "repo is cloned and repo is exits"
-cd /home/ec2-user/addressbook
+cd /home/ec2-user/addressbook1
 git pull origin master
 else
 git clone https://github.com/Deepthirao192/addressbook1.git
 fi
-cd /home/ec2-user/addressbook
+cd /home/ec2-user/addressbook1
 mvn package
