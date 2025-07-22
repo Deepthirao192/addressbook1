@@ -40,24 +40,29 @@ pipeline {
         }
 
         stage('Package') {
-            agent {
-                label 'linux_slave' // 👈 Name of your slave node (must be configured in Jenkins)
+            
+            agent any
             
             }
             input {
-                message "Select the version to package"
-                ok "version selected"
+                message "Select the env to deploy"
+                ok "Deploy"
                 parameters {
-                    choice(name: 'NEWAPP', choices: ['1.2','2.1','3.1'])
+                    choice(name: 'NEWAPP', choices: ['Onprem','EC2','EKS'])
                 }
             }
-            steps {
-                echo 'Packaging the code'
-                echo "Packaging the version ${params.APPVERSION}"
-                sh 'mvn package'
-            }
+            steps{
+            script{
+                sshagent(['deploy_server']) {
+                echo"packaging the code"
+                scp"server-config.sh -o StrictHostKeyChecking=no ec2-user@72.31.6.247:/home/ec2-user"
+                sh "ssh StrictHostKeyChecking=no ec2-user@172.31.6.247 '~/bash server-config.sh"
+}
+            
         }
     }
 }
+}
+
     
     
