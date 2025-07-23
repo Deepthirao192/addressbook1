@@ -127,6 +127,13 @@
         </configuration>
       </plugin>
 
+      <!-- Updated War plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+
       <!-- Jetty plugin for running app -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
