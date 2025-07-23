@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo yum install -y java-17-openjdk-devel
 sudo yum install -y git
 sudo yum install -y maven
